@@ -1,6 +1,7 @@
 // import
 const path = require("path");
 const HtmlPlugin = require("html-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 // 내보내기 : JS -> export / node.js -> module.exports
 module.exports = {
@@ -16,6 +17,9 @@ module.exports = {
   plugins: [
     new HtmlPlugin({
       template: "./index.html",
+    }),
+    new CopyPlugin({
+      patterns: [{ from: "static" }],
     }),
   ],
   devServer: {
