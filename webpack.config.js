@@ -9,9 +9,21 @@ module.exports = {
   entry: "./js/main.js", // 자바스크립트를 진입점으로 한다.
   // 결과물(번들)을 반환하는 설정
   output: {
-    // path: path.resolve(__dirname, "dist"), // 절대경로 표기, resolve메소드 1, 2경로를 합쳐준다.
+    // path: path.resolve(__dirname, "dist"),
+    // 절대경로 표기, resolve메소드 1, 2경로를 합쳐준다.
     // filename: "main.js",
     clean: true,
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          "style-loader", // 해석된 내용을 삽입을 해주는 역활
+          "css-loader", // 먼저 해석 됨, JS에서 CSS를 해석하는 용도
+        ],
+      },
+    ],
   },
   // 번들링 후 결과물의 처리 방식 등 다양한 플러그인들을 설정
   plugins: [
