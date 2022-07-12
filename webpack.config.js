@@ -18,11 +18,7 @@ module.exports = {
     rules: [
       {
         test: /\.s?css$/,
-        use: [
-          "style-loader", // 해석된 내용을 삽입을 해주는 역활
-          "css-loader", // 먼저 해석 됨, JS에서 CSS를 해석하는 용도
-          "sass-loader",
-        ],
+        use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"],
       },
     ],
   },
